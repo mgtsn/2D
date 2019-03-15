@@ -150,7 +150,7 @@ MonoBehaviour:
   isGrounded: 0
   moveSpeed: 10
   jumpForce: 15
-  airSpeed: 6
+  airSpeed: 10
 --- !u!1 &3001359581813298507
 GameObject:
   m_ObjectHideFlags: 0

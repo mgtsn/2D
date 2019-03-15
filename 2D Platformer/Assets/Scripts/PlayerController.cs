@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -16,6 +17,18 @@ public class PlayerController : MonoBehaviour
     public float jumpForce = 10;
     public float airSpeed = 6;
     // Start is called before the first frame update
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.transform.tag == "End")
+        {
+            SceneManager.LoadScene("scene 2");
+        } else if (collision.transform.tag == "Hazard")
+        {
+            SceneManager.LoadScene("SampleScene");
+        }
+    }
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
