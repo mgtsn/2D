@@ -25,7 +25,8 @@ public class PlayerController : MonoBehaviour
             SceneManager.LoadScene("scene 2");
         } else if (collision.transform.tag == "Hazard")
         {
-            SceneManager.LoadScene("SampleScene");
+            Scene s = SceneManager.GetActiveScene();
+            SceneManager.LoadScene(s.name);
         }
     }
 
