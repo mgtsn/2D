@@ -935,6 +935,7 @@ GameObject:
   - component: {fileID: 911324248}
   - component: {fileID: 911324247}
   - component: {fileID: 911324249}
+  - component: {fileID: 911324250}
   m_Layer: 0
   m_Name: block (4)
   m_TagString: Hazard
@@ -1030,6 +1031,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &911324250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 911324246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe3de86ef1a039b469d3fff381c9b30b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speedx: 3
+  speedy: 0
+  maxtime: 2
 --- !u!1 &1120766241
 GameObject:
   m_ObjectHideFlags: 0
