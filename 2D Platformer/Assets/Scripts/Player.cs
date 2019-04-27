@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class P1 : MonoBehaviour
+public class Player : MonoBehaviour
 {
     private Rigidbody2D rb;
     private SpriteRenderer sprite;
@@ -13,6 +13,8 @@ public class P1 : MonoBehaviour
 	public string nextScene;
 
 	public bool win;
+
+    private Player ps;
 
     public Transform groundCheck;
     public float groundCheckRadius = .1f;
@@ -47,6 +49,7 @@ public class P1 : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
+        ps = partner.GetComponent<Player>();
     }
 
     // Update is called once per frame
@@ -56,7 +59,7 @@ public class P1 : MonoBehaviour
 
         float x = Input.GetAxisRaw("Horizontal"); // * Time.deltaTime;
 
-		if(win)
+        if (win && ps.win)
 		{
 			SceneManager.LoadScene(nextScene);
 		}

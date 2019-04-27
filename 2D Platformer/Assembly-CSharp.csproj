@@ -61,8 +61,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Movement.cs" />
-    <Compile Include="Assets\Scripts\P1.cs" />
-    <Compile Include="Assets\Scripts\P2.cs" />
+    <Compile Include="Assets\Scripts\Player.cs" />
+    <Compile Include="Assets\Scripts\Saw.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>C:/Users/Morgan/Documents/GitHub/2D/2D Platformer/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>

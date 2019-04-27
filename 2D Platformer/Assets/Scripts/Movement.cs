@@ -20,7 +20,8 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(speedx * Time.deltaTime * reverse, speedy * Time.deltaTime * reverse, 0);
+        transform.position = transform.position + new Vector3(speedx * Time.deltaTime * reverse, speedy * Time.deltaTime * reverse, 0);
+        //transform.Translate(speedx * Time.deltaTime * reverse, speedy * Time.deltaTime * reverse, 0);
         timer += Time.deltaTime;
         if (timer >= maxtime)
         {
