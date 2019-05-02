@@ -142,7 +142,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 000d269d28e0d4eecb2044934c094f9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  partner: {fileID: 0}
+  effect: {fileID: 7292382031173906249, guid: c4e0fdbc0d728e246b8371fdf3562305, type: 3}
   nextScene: 
   win: 0
   groundCheck: {fileID: 4673277689887270070}

@@ -17,6 +17,6 @@ public class Saw : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        sprite
+        transform.Rotate(0, 0, speed * Time.deltaTime);
     }
 }

@@ -6,15 +6,20 @@ using UnityEngine.SceneManagement;
 public class Player : MonoBehaviour
 {
     private Rigidbody2D rb;
+    private Rigidbody2D rb2;
     private SpriteRenderer sprite;
 
-	public GameObject partner;
+    public GameObject effect;
+
+	private GameObject partner;
+    private GameObject m;
+    private Manager mscript;
+    private Player ps;
 	
 	public string nextScene;
 
 	public bool win;
 
-    private Player ps;
 
     public Transform groundCheck;
     public float groundCheckRadius = .1f;
@@ -33,8 +38,14 @@ public class Player : MonoBehaviour
 			win = true;
         } else if (collision.transform.tag == "Hazard")
         {
-            Scene s = SceneManager.GetActiveScene();
-            SceneManager.LoadScene(s.name);
+            Instantiate(effect, transform.position, transform.rotation);
+            mscript.restartLevel();
+            Destroy(ps);
+            //Destroy(rb2);
+            rb2.velocity = new Vector2(0, 0);
+            Destroy(this.gameObject);
+            //Scene s = SceneManager.GetActiveScene();
+            //SceneManager.LoadScene(s.name);
         }
     }
 
@@ -43,13 +54,23 @@ public class Player : MonoBehaviour
 		if(collision.transform.tag == "End")
         {
 			win = false;
-        }
+        } 
 	}
     void Start()
     {
+        if(name == "P1")
+        {
+            partner = GameObject.Find("P2");
+        } else
+        {
+            partner = GameObject.Find("P1");
+        }
+        m = GameObject.Find("Manager");
+        mscript = (Manager)m.GetComponent(typeof(Manager));
         rb = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
         ps = partner.GetComponent<Player>();
+        rb2 = partner.GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
