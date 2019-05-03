@@ -35,7 +35,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1000, y: 1000}
+  m_SizeDelta: {x: 10000, y: 10000}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8942073525545228941
 CanvasRenderer:
@@ -199,4 +199,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e84f8ebc79276c448bdd836633a3c819, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nextScene: 
   maxTime: 3
+  wl: 0
+  fadeSpeed: 0.5
+  cg: {fileID: 0}

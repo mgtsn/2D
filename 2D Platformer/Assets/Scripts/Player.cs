@@ -9,7 +9,10 @@ public class Player : MonoBehaviour
     private Rigidbody2D rb2;
     private SpriteRenderer sprite;
 
+    public bool move = true;
+
     public GameObject effect;
+    public GameObject winEffect;
 
 	private GameObject partner;
     private GameObject m;
@@ -20,6 +23,10 @@ public class Player : MonoBehaviour
 
 	public bool win;
 
+    public float jumpForce = 15;
+    public float jumpForceLight = 5;
+    
+
 
     public Transform groundCheck;
     public float groundCheckRadius = .1f;
@@ -27,7 +34,7 @@ public class Player : MonoBehaviour
     public bool isGrounded = false;
 
     public float moveSpeed = 10;
-    public float jumpForce = 10;
+    
     public float airSpeed = 6;
     // Start is called before the first frame update
 
@@ -44,8 +51,6 @@ public class Player : MonoBehaviour
             //Destroy(rb2);
             rb2.velocity = new Vector2(0, 0);
             Destroy(this.gameObject);
-            //Scene s = SceneManager.GetActiveScene();
-            //SceneManager.LoadScene(s.name);
         }
     }
 
@@ -82,33 +87,57 @@ public class Player : MonoBehaviour
 
         if (win && ps.win)
 		{
-			SceneManager.LoadScene(nextScene);
+            Instantiate(winEffect, transform.position, transform.rotation);
+            rb.velocity = new Vector2(0, 0);
+            move = false;
+            
+            mscript.endLevel();
+            
+                
+                Destroy(this);
+           
 		}
 
+        
 
-        if (x > 0)
-        {
-            sprite.flipX = false;
-        }
-        else if (x < 0)
-        {
-            sprite.flipX = true;
-        }
 
-        if (isGrounded)
-        {
-            rb.velocity = new Vector2(x * moveSpeed, rb.velocity.y);
-        }
-        else
-        {
-            rb.velocity = new Vector2(x * airSpeed, rb.velocity.y);
-        }
 
-        if (Input.GetButtonDown("Jump") && isGrounded)
-        {
-            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
-        }
 
+        if (move)
+        {
+            if (x > 0)
+            {
+                sprite.flipX = false;
+            }
+            else if (x < 0)
+            {
+                sprite.flipX = true;
+            }
+
+            if (isGrounded)
+            {
+                rb.velocity = new Vector2(x * moveSpeed, rb.velocity.y);
+            }
+            else
+            {
+                rb.velocity = new Vector2(x * airSpeed, rb.velocity.y);
+            }
+
+            if (Input.GetButtonDown("Jump") && isGrounded)
+            {
+                float v = Input.GetAxisRaw("Vertical");
+                if (v < 0)
+                {
+                    rb.velocity = new Vector2(rb.velocity.x, jumpForceLight);
+                } else
+                {
+                    rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+                }
+                
+                //rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+            }
+
+        }
 
     }
 }

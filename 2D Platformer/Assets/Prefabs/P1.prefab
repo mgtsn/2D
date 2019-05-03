@@ -142,9 +142,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 000d269d28e0d4eecb2044934c094f9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  move: 1
   effect: {fileID: 7292382031173906249, guid: c4e0fdbc0d728e246b8371fdf3562305, type: 3}
+  winEffect: {fileID: 8492005925712038987, guid: 29699c17300053d44a468efe179839c7,
+    type: 3}
   nextScene: 
   win: 0
+  jumpForce: 16
+  jumpForceLight: 13
   groundCheck: {fileID: 4673277689887270070}
   groundCheckRadius: 0.2
   whatIsGround:
@@ -152,7 +157,6 @@ MonoBehaviour:
     m_Bits: 256
   isGrounded: 0
   moveSpeed: 10
-  jumpForce: 15
   airSpeed: 10
 --- !u!1 &3001359581813298507
 GameObject:

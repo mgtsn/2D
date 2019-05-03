@@ -7,7 +7,7 @@ public class Movement : MonoBehaviour
     public float speedx;
     public float speedy;
     public float maxtime = 6;
-    private float timer = 0;
+    public float timer = 0;
     private int reverse = 1;
     
 

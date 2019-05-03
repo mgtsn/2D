@@ -16,7 +16,7 @@ public class MainMenu : MonoBehaviour
     {
         if (Input.GetButtonDown("Jump"))
         {
-            SceneManager.LoadScene("1");
+            SceneManager.LoadScene("L1");
         }
     }
 }
